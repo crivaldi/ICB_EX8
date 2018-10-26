@@ -10,6 +10,8 @@ Exercise08
 import pandas
 import matplotlib.pyplot as plt
 
+# Part 1 Analysis of Sports Teaam data
+
 # data loaded into a data frame
 scores=pandas.read_csv("UWvMSU_1-22-13.txt", sep="\t")
 
@@ -43,4 +45,54 @@ plt.plot(scores["time"],scores["UWscore"],'r-',scores["time"],scores["MSUscore"]
 plt.ylabel('Score')
 plt.xlabel('Time')
 plt.show
+
+
+# Part 2: Guess my number
+from random import randint
+number = randint(0,100)
+
+print("I'm thinking of a number  1-100. Can you guess my number? ")
+input_num=int(input())
+print(number)
+
+while number != input_num:
+    if input_num < number:
+        print("You're wrong! Guess a higher number: ")
+    elif input_num > number:
+        print("You're wrong! Guess a lower number: ")
+    input_num = int(input())
+
+print("Correct! Good job.")
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
