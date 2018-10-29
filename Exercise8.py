@@ -32,5 +32,22 @@ for i in range(0,len(data.iloc[:,1])):
                UW.iloc[i,1]=UW.iloc[i-1,1]
             
 mpl.plot(data.iloc[:,0],UW.iloc[:,1],'r-',data.iloc[:,0],MSU.iloc[:,1],'g-')
+mpl.xlabel('Time')
+mpl.ylabel('Total Score Through Time')
+mpl.legend(['UW','MSU'])
 
 #Problem2
+import random
+x=random.randint(1,101)
+#Sanity Check: print x
+print 'I\'m thinking of a number between 1 and 100. Guess what it is!' #change later
+guess = int(input())
+
+while guess != x:
+    if guess > x:
+        print 'lower'
+    else:
+        print 'higher'
+    print 'Guess again'
+    guess = int(input())
+print "Good job!"
