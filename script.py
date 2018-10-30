@@ -8,11 +8,11 @@ Biocomputing Exercise 8
 @author: syli
 """
 
-#%% Challenge 1
-
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+
+#%% Q1
 
 dat = pd.read_table("UWvMSU_1-22-13.txt")
 dat['UWscore'] = 0
@@ -41,4 +41,31 @@ plt.grid()
 plt.show()
 
 
-#%% Challenge 2
+#%% Q2 guess my number
+
+print "I'm thinking of a number 1-100..."
+
+from random import randint
+number = randint(0, 100)
+
+try:
+    guess = int(raw_input('Guess:'))
+except ValueError:
+    print "Not a number"
+
+while guess != number:
+    if guess > number:
+        print "Lower!"
+        try:
+            guess = int(raw_input('Guess:'))
+        except ValueError:
+            print "Not a number"
+    else:
+        print "Higher!"
+        try:
+            guess = int(raw_input('Guess:'))
+        except ValueError:
+            print "Not a number"
+
+print "Correct!"
+
