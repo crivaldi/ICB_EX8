@@ -1,0 +1,15 @@
+import random
+number=random.randint(1,100)
+print 'I\'m thinking of a number between 1 and 100. Guess what it is!'
+guess=int(raw_input("Guess:"))
+while random != "guess":
+        print
+        if guess<number:
+            print "Higher"
+            guess=int(raw_input("Guess:"))
+        elif guess>number:
+            print "Lower"
+            guess=int(raw_input("Guess:"))
+        else:
+            print "Correct!"
+            break
