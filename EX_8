@@ -1,0 +1,36 @@
+#1 Sports cumulative scores
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+gamedata=pd.read_csv('gamedata.csv', sep='\s+')
+UW=gamedata[gamedata.team.str.contains('UW')]
+print UW
+MSU=gamedata[gamedata.team.str.contains('MSU')]
+print MSU
+UW_cumsum=np.cumsum(UW.score)
+UW_time=UW.time
+UW_time
+MSU_cumsum=np.cumsum(MSU.score)
+MSU_time=MSU.time
+plt.plot(UW_time,UW_cumsum,'r-',MSU_time,MSU_cumsum,'g-')
+plt.ylabel('Cumulative Score')
+plt.xlabel('Time')
+plt.legend()
+plt.show()
+#2 Guess My Number Game
+import random
+number=random.randint(1,100)
+print 'I\'m thinking of a number between 1 and 100. Guess what it is!'
+guess=int(raw_input("Guess:"))
+while random != "guess":
+        print
+        if guess<number:
+            print "Higher"
+            guess=int(raw_input("Guess:"))
+        elif guess>number:
+            print "Lower"
+            guess=int(raw_input("Guess:"))
+        else:
+            print "Correct!"
+            break
+  
