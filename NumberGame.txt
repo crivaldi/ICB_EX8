@@ -1,0 +1,16 @@
+#get random integer
+import random
+n=random.randint(1,101)	
+guess=int(raw_input("Make a guess:"))
+while n !='guess':
+	print
+	if guess<n:
+		print "Higher"
+		guess = int(raw_input("Make a guess:"))
+	elif guess>n:
+		print "Lower"
+		guess = int(raw_input("Make a guess:"))
+	else:
+		print "Correct!"
+		break
+	print
