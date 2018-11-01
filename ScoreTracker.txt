@@ -1,0 +1,17 @@
+import matplotlib.pyplot as plt
+#convert txt file to csv
+import pandas
+dataframe = pandas.read_csv("UWvMSU_1-22-13.txt",delimiter="\t")
+dataframe.to_csv("score.csv",encoding='utf-8',index=False)
+data = pandas.read_csv("score.csv")
+#convert data to cumulative score for each team
+MSUscore=data[data['team'].str.contains("MSU")]
+UWscore=data[data['team'].str.contains("UW")]
+MSUscore['cum_sum']=MSUscore.score.cumsum()
+UWscore['cum_sum']=UWscore.score.cumsum()
+gamescore=MSUscore.append(UWscore)
+from plotnine import *
+a=ggplot(gamescore,aes(x='time',y='cum_sum'))
+aplot=a+geom_line(aes(color='factor(team)'))+scale_color_manual(values=['green','red’])
+aplot.save(filename='gamescore.pdf')
+
