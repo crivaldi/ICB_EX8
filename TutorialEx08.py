@@ -22,7 +22,14 @@ df2.loc[df2['time'].between(11,20.99),'Quarter']='Second'
 df2.loc[df2['time'].between(21,30.99),'Quarter']='Third'
 df2.loc[df2['time'].between(31,40.99),'Quarter']='Fourth'
 print(df2)
-plt.plot("Quarter","UWscore","r-","Quarter","MSUscore","g-")
+plt.plot(df2["Quarter"],df2["UWscore"],"r-",df2["Quarter"],df2["MSUscore"],"g-")
+plt.grid(True)
+plt.axes(["First","Fourth", 0, 50])
+plt.xticks(['First','Second','Third','Fourth'])
+plt.axes().spines["left"].set_position(("data",40))
+#Note that when I convert time to quarters on the x-axis it returns lines with vertical additions at each x-axis tick (I am not sure how to get rid of this)
+#If I were to comment out the lines that create the 'Quarter' column and change plt.plot(df2["Quarter"],df2["UWscore"],"r-",df2["Quarter"],df2["MSUscore"],"g-")
+#to plt.plot(df2["time"],df2["UWscore"],"r-",df2["time"],df2["MSUscore"],"g-") I would get a continuous graph but the x-axis would only be labeled by time and not by quarters
 
 #Question 2 - Guess My Number
 import random
@@ -45,3 +52,6 @@ while n != "guess":
         print("You guessed right!")
         break
     print
+
+
+
