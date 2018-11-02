@@ -1,0 +1,42 @@
+#!/usr/bin/env python2
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Nov  1 16:39:09 2018
+
+@author: atatarian
+"""
+import numpy as np
+import pandas as pd
+df = pd.read_table('UWvMSU_1-22-13.txt', delim_whitespace=True, names=('Time', 'Team', 'Score'), header=0)
+
+UW=df[df.Team.str.contains('UW')]
+UWcs=np.cumsum(UW.Score)
+
+print UWcs
+
+sum(UWcs)
+
+MSU=df[df.Team.str.contains('MSU')]
+MSUcs=np.cumsum(UW.Score)
+
+print MSUcs
+
+#All code above has been confirmed to create the desired dataframe
+#Code sorts the game data into the two different schools' cumulative game scores
+
+#Pseudo Code below because matplotlib is not running on my mac.
+import matplotlib.pyplot as put
+import numpy as np
+time = np.arange(40)
+plt.plot(time,UWcs,’r-‘,time,MSUcs,’g-‘)
+plt.xlabel('Time')
+plt.ylabel('Score')
+plt.title('UW and MSU Game Scores')
+plt.grid(True)
+plt.savefig("score-graph.png")
+plt.show()
+
+#Without being able to test this code, I am not sure if it is correct.
+#To the best of my matplotlib ability, this code generates a figure for the game scores.
+#The figure plots game time on the x axis and the cumulative game scores on the y axis.
+#The UW scores will be plotted in red and the MSU in green.
