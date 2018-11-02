@@ -37,4 +37,4 @@ ax.set_yticks([10,20,30,40,50],      minor=True) #Sets the yticks for minor
 ax.set_xticklabels([''], minor=True) #makes the minor labels not show
 ax.grid(which='minor') #turns on grid for minor ticks
 ax.set_xlim([0,40]) 
-plt.set_ylim([0,50])
+ax.set_ylim([0,50])
