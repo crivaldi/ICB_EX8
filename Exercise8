@@ -1,0 +1,59 @@
+#!/usr/bin/env python2
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Nov  1 16:09:12 2018
+
+@author: jessicahummel
+"""
+
+#1
+import numpy as np
+import pandas as pd
+data = pd.read_csv('UWvMSU_1-22-13.txt')
+
+df = pd.read_table('UWvMSU_1-22-13.txt', delim_whitespace=True, names=('Time','Team','Score'), header=0)
+
+UW=df[df.Team.str.contains('UW')]
+
+MSU=df[df.Team.str.contains('MSU')]
+
+UWcs = np.cumsum(UW.Score)
+MSUcs = np.cumsum(MSU.Score)
+
+print UWcs
+print MSUcs
+
+#having troubles with plotnine/running the rest of the code
+
+#below is the code I would attempt to run if the functions were working - would have altered the code based on trial and error if I could.
+#ideally, the code would return a plot with time on the x-axis and score on the y-axis, and there would be two color indicated lines for UW and MSU.
+
+import matplotlib.pyplot as plt
+
+time = np.arange(40.00)
+
+plt.plot(time,UWcs,'r-',time,MSUcs,'g-')
+
+plt.xlabel('Time')
+plt.ylabel('Score')
+plt.title('University of Wisconsin and Michigan State University Scores')
+plt.grid(True)
+plt.savefig("UWvsMSU.png")
+plt.show()
+
+#2
+print("I'm thinking of a number 1-100...")
+
+import numpy
+num = numpy.random.choice(101)
+guess = -1
+
+while num != guess:
+    guess = int(raw_input())
+    if guess > num:
+        print('Lower')
+    elif guess < num:
+        print('Higher')
+    else:
+        print('Correct!')
+        break
